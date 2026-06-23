@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meer Agentify — AI & Business Solutions</title>
+<meta name="description" content="Meer Agentify helps businesses automate, scale, and grow with custom AI systems, software development, and digital marketing."/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --primary:#4F46E5;
+  --primary-light:#EEF2FF;
+  --primary-dark:#3730A3;
+  --accent:#F97316;
+  --accent-light:#FFF7ED;
+  --green:#16A34A;
+  --green-light:#F0FDF4;
+  --white:#FFFFFF;
+  --gray-50:#F9FAFB;
+  --gray-100:#F3F4F6;
+  --gray-200:#E5E7EB;
+  --gray-400:#9CA3AF;
+  --gray-500:#6B7280;
+  --gray-700:#374151;
+  --gray-900:#111827;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+  --shadow:0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.10);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--gray-900);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);height:72px;display:flex;align-items:center;padding:0 5%;}
+.nav-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:800;}
+.logo-text{font-size:18px;font-weight:800;color:var(--gray-900);letter-spacing:-0.5px;}
+.logo-text span{color:var(--primary);}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none;}
+.nav-links a{text-decoration:none;font-size:14px;color:var(--gray-500);font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;}
+.nav-links a:hover{color:var(--gray-900);background:var(--gray-100);}
+.nav-btn{background:var(--primary);color:#fff!important;border-radius:10px!important;font-weight:600!important;}
+.nav-btn:hover{background:var(--primary-dark)!important;color:#fff!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gray-700);border-radius:2px;transition:all .3s;}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--gray-200);padding:16px 5%;flex-direction:column;gap:4px;z-index:199;box-shadow:var(--shadow-lg);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{text-decoration:none;font-size:15px;color:var(--gray-700);font-weight:500;padding:12px 16px;border-radius:10px;transition:background .2s;}
+.mobile-menu a:hover{background:var(--gray-100);}
+.mobile-menu .m-btn{background:var(--primary);color:#fff;font-weight:600;text-align:center;margin-top:4px;}
+
+/* HERO */
+.hero{padding:96px 5% 80px;background:#fff;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(135deg,var(--primary-light) 0%,#E0E7FF 100%);border-radius:0 0 0 80px;z-index:0;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--primary-light);color:var(--primary);font-size:13px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:20px;border:1px solid #C7D2FE;}
+.hero-badge span{width:6px;height:6px;background:var(--primary);border-radius:50%;display:inline-block;}
+.hero h1{font-size:clamp(32px,4vw,52px);font-weight:800;color:var(--gray-900);line-height:1.15;letter-spacing:-1.5px;margin-bottom:20px;}
+.hero h1 em{color:var(--primary);font-style:normal;}
+.hero-desc{font-size:17px;color:var(--gray-500);line-height:1.75;margin-bottom:36px;max-width:480px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:14px 26px;border-radius:var(--radius-sm);font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s;}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 8px 24px rgba(79,70,229,0.3);}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:14px 26px;border-radius:var(--radius-sm);font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s;}
+.btn-wa:hover{background:#22C55E;transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--gray-700);padding:14px 26px;border-radius:var(--radius-sm);font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid var(--gray-200);cursor:pointer;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary);}
+.hero-stats{display:flex;gap:32px;}
+.hero-stat-num{font-size:26px;font-weight:800;color:var(--gray-900);}
+.hero-stat-lbl{font-size:13px;color:var(--gray-500);font-weight:500;}
+.hero-visual{position:relative;}
+.hero-card-main{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-lg);border:1px solid var(--gray-200);}
+.hero-card-main h3{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:16px;}
+.metric-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--gray-100);}
+.metric-row:last-child{border-bottom:none;}
+.metric-label{font-size:13px;color:var(--gray-500);}
+.metric-val{font-size:14px;font-weight:700;color:var(--primary);}
+.metric-badge{background:var(--green-light);color:var(--green);font-size:11px;font-weight:700;padding:3px 8px;border-radius:100px;}
+.hero-float{position:absolute;background:#fff;border-radius:12px;box-shadow:var(--shadow-lg);padding:12px 16px;border:1px solid var(--gray-200);}
+.hf-top{top:-20px;right:-20px;display:flex;align-items:center;gap:10px;}
+.hf-bot{bottom:-20px;left:-20px;display:flex;align-items:center;gap:10px;}
+.hf-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.hf-text p{font-size:12px;font-weight:700;color:var(--gray-900);line-height:1.2;}
+.hf-text span{font-size:11px;color:var(--gray-400);}
+
+/* TRUST */
+.trust{padding:32px 5%;background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gray-500);font-weight:500;}
+.trust-dot{width:6px;height:6px;background:var(--gray-300);border-radius:50%;}
+
+/* SECTION BASE */
+.section{padding:88px 5%;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.section-header{margin-bottom:52px;}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--primary);margin-bottom:10px;}
+.section-title{font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--gray-900);letter-spacing:-1px;line-height:1.2;margin-bottom:14px;}
+.section-sub{font-size:16px;color:var(--gray-500);line-height:1.75;max-width:520px;}
+
+/* SERVICES */
+#services{background:#fff;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.svc-card{background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--radius);padding:28px 24px;transition:all .25s;cursor:default;position:relative;overflow:hidden;}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);transform:scaleX(0);transition:transform .25s;transform-origin:left;}
+.svc-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
+.svc-card h3{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:8px;}
+.svc-card p{font-size:14px;color:var(--gray-500);line-height:1.65;}
+
+/* STATS */
+.stats-section{background:var(--primary);padding:64px 5%;}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;}
+.stat-num{font-size:42px;font-weight:800;color:#fff;line-height:1;}
+.stat-lbl{font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px;font-weight:500;}
+
+/* WHY */
+#why{background:var(--gray-50);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.why-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:32px 24px;transition:box-shadow .2s;}
+.why-card:hover{box-shadow:var(--shadow-lg);}
+.why-num{font-size:48px;font-weight:800;color:var(--primary-light);line-height:1;margin-bottom:14px;letter-spacing:-2px;}
+.why-card h4{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:8px;}
+.why-card p{font-size:14px;color:var(--gray-500);line-height:1.7;}
+
+/* PROCESS */
+#process{background:#fff;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;}
+.process-grid::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:2px;background:var(--gray-200);z-index:0;}
+.proc-card{text-align:center;position:relative;z-index:1;}
+.proc-num{width:56px;height:56px;border-radius:50%;background:var(--primary);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 16px rgba(79,70,229,0.3);}
+.proc-card h4{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:8px;}
+.proc-card p{font-size:14px;color:var(--gray-500);line-height:1.65;}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--gray-50);}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.test-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:32px;}
+.stars{color:#FBBF24;font-size:15px;margin-bottom:16px;letter-spacing:2px;}
+.test-card blockquote{font-size:15px;color:var(--gray-700);line-height:1.75;margin-bottom:24px;font-style:italic;}
+.test-author{display:flex;align-items:center;gap:12px;}
+.test-avatar{width:42px;height:42px;border-radius:50%;background:var(--primary-light);color:var(--primary);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.test-name{font-size:14px;font-weight:700;color:var(--gray-900);}
+.test-role{font-size:12px;color:var(--gray-400);}
+
+/* CTA */
+.cta-section{background:var(--gray-900);padding:96px 5%;text-align:center;}
+.cta-inner{max-width:640px;margin:0 auto;}
+.cta-badge{display:inline-block;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:12px;font-weight:600;padding:6px 16px;border-radius:100px;margin-bottom:24px;letter-spacing:1px;text-transform:uppercase;}
+.cta-section h2{font-size:clamp(28px,4vw,46px);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:16px;line-height:1.2;}
+.cta-section p{font-size:17px;color:rgba(255,255,255,0.65);margin-bottom:40px;line-height:1.7;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--primary);padding:14px 28px;border-radius:var(--radius-sm);font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;}
+.btn-white:hover{background:var(--primary-light);transform:translateY(-1px);}
+
+/* CONTACT */
+#contact{background:#fff;}
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;}
+.contact-info h3{font-size:22px;font-weight:800;color:var(--gray-900);margin-bottom:12px;}
+.contact-info p{font-size:15px;color:var(--gray-500);line-height:1.75;margin-bottom:32px;}
+.contact-links{display:flex;flex-direction:column;gap:12px;}
+.clink{display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);text-decoration:none;color:inherit;transition:all .2s;}
+.clink:hover{border-color:var(--primary);background:var(--primary-light);}
+.clink-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.clink h5{font-size:14px;font-weight:700;color:var(--gray-900);}
+.clink p{font-size:13px;color:var(--gray-400);margin:0;}
+.contact-form{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:40px;}
+.contact-form h3{font-size:20px;font-weight:800;color:var(--gray-900);margin-bottom:28px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{margin-bottom:18px;}
+.fg label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);padding:12px 15px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--gray-900);background:#fff;outline:none;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,0.1);}
+.fg textarea{resize:vertical;min-height:110px;}
+.form-btn{width:100%;background:var(--primary);color:#fff;border:none;padding:14px;border-radius:var(--radius-sm);font-size:15px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s;}
+.form-btn:hover{background:var(--primary-dark);}
+.form-success{display:none;text-align:center;padding:20px;background:var(--green-light);border-radius:var(--radius-sm);color:var(--green);font-weight:600;font-size:15px;}
+
+/* FOOTER */
+footer{background:var(--gray-900);padding:64px 5% 32px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.footer-logo .logo-icon{background:var(--primary);}
+.footer-logo .logo-text{color:#fff;}
+.footer-logo .logo-text span{color:#818CF8;}
+.footer-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;max-width:260px;margin-bottom:24px;}
+.social-links{display:flex;gap:8px;}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:background .2s;}
+.social-btn:hover{background:var(--primary);}
+.footer-col h5{font-size:13px;font-weight:700;color:#fff;letter-spacing:0.5px;margin-bottom:18px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{font-size:14px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,0.35);}
+.footer-bottom a{color:rgba(255,255,255,0.35);text-decoration:none;}
+.footer-bottom a:hover{color:#fff;}
+
+/* ARIA */
+.aria-fab{position:fixed;bottom:28px;right:28px;width:62px;height:62px;border-radius:50%;background:var(--primary);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 28px rgba(79,70,229,0.45);z-index:999;transition:all .2s;}
+.aria-fab:hover{transform:scale(1.08);box-shadow:0 12px 36px rgba(79,70,229,0.55);}
+.aria-pulse{position:absolute;top:2px;right:2px;width:14px;height:14px;background:#4ADE80;border-radius:50%;border:2px solid #fff;}
+.aria-window{position:fixed;bottom:104px;right:28px;width:340px;background:#fff;border-radius:var(--radius);border:1px solid var(--gray-200);box-shadow:0 20px 60px rgba(0,0,0,0.15);z-index:998;display:none;flex-direction:column;overflow:hidden;}
+.aria-window.open{display:flex;}
+.aria-head{background:var(--primary);padding:18px 20px;display:flex;align-items:center;gap:12px;}
+.aria-av{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;}
+.aria-head-name{font-size:15px;font-weight:700;color:#fff;}
+.aria-head-sub{font-size:12px;color:rgba(255,255,255,0.7);}
+.aria-online-dot{width:8px;height:8px;background:#4ADE80;border-radius:50%;margin-left:auto;}
+.aria-close{background:none;border:none;color:rgba(255,255,255,0.7);font-size:20px;cursor:pointer;margin-left:8px;}
+.aria-messages{padding:20px;display:flex;flex-direction:column;gap:10px;}
+.aria-msg-bot{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:4px 14px 14px 14px;padding:12px 14px;font-size:14px;color:var(--gray-700);line-height:1.6;max-width:90%;}
+.aria-quick{padding:0 20px 16px;display:flex;flex-direction:column;gap:6px;}
+.aria-qbtn{background:#fff;border:1.5px solid var(--gray-200);color:var(--gray-700);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;cursor:pointer;text-align:left;transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif;}
+.aria-qbtn:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-light);}
+.aria-input-bar{display:flex;gap:8px;padding:12px 16px 16px;border-top:1px solid var(--gray-200);}
+.aria-txt{flex:1;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);padding:10px 13px;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;}
+.aria-txt:focus{border-color:var(--primary);}
+.aria-send-btn{background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);padding:0 16px;font-size:16px;cursor:pointer;transition:background .2s;}
+.aria-send-btn:hover{background:var(--primary-dark);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-bg{display:none;}
+  .hero-visual{display:none;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .process-grid::before{display:none;}
+  .contact-layout{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:56px 5% 48px;}
+  .hero h1{font-size:30px;}
+  .process-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .aria-window{width:calc(100vw - 40px);right:20px;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">M</div>
+      <div class="logo-text">Meer<span>Agentify</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://wa.me/13217803198" target="_blank" class="nav-btn">Book a free call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#why">Why us</a>
+  <a href="#process">Process</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="https://wa.me/13217803198" target="_blank" class="m-btn">Book a free call</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span> AI & IT Solutions Agency</div>
+      <h1>Automate your business.<br><em>Grow 10x faster.</em></h1>
+      <p class="hero-desc">We build custom AI systems, software, and marketing engines that save time, capture leads, and scale your business — fully automated.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/13217803198" target="_blank" class="btn-primary">📅 Book a free call</a>
+        <a href="https://wa.me/13217803198" target="_blank" class="btn-wa">💬 WhatsApp us</a>
+        <a href="#services" class="btn-ghost">Our services →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">12+</div>
+          <div class="hero-stat-lbl">Services</div>
+        </div>
+        <div style="width:1px;background:var(--gray-200);"></div>
+        <div>
+          <div class="hero-stat-num">24/7</div>
+          <div class="hero-stat-lbl">AI uptime</div>
+        </div>
+        <div style="width:1px;background:var(--gray-200);"></div>
+        <div>
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-lbl">Custom built</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-float hf-top">
+        <div class="hf-icon" style="background:#EEF2FF;">🤖</div>
+        <div class="hf-text"><p>AI Agent Active</p><span>Processing leads...</span></div>
+      </div>
+      <div class="hero-card-main">
+        <h3>📊 Live CRM Dashboard</h3>
+        <div class="metric-row">
+          <span class="metric-label">New leads today</span>
+          <span class="metric-val">47</span>
+          <span class="metric-badge">+23%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Emails sent</span>
+          <span class="metric-val">312</span>
+          <span class="metric-badge">Auto</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Calls booked</span>
+          <span class="metric-val">18</span>
+          <span class="metric-badge">+41%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Conversion rate</span>
+          <span class="metric-val">38%</span>
+          <span class="metric-badge">+12%</span>
+        </div>
+      </div>
+      <div class="hero-float hf-bot">
+        <div class="hf-icon" style="background:#F0FDF4;">✅</div>
+        <div class="hf-text"><p>Lead qualified & booked</p><span>Just now · Automated</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">🤖 AI-powered automation</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">⚡ Fast delivery</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">🔧 100% custom built</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">🌍 Global clients</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">📈 Results guaranteed</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">What we do</div>
+      <div class="section-title">Everything your business needs to scale</div>
+      <div class="section-sub">From AI automation to custom software — one agency that handles it all.</div>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card"><div class="svc-icon" style="background:#EEF2FF;">🤖</div><h3>AI Chatbots</h3><p>Smart bots that qualify leads, answer questions, and book calls for you — 24 hours a day.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#FFF7ED;">📧</div><h3>Email Marketing</h3><p>AI-powered campaigns that nurture and convert cold leads into paying customers automatically.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#F0FDF4;">🎯</div><h3>Lead Generation</h3><p>AI agents that find, qualify, and reach out to your ideal customers completely on autopilot.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#FFF7ED;">📣</div><h3>Demand Generation</h3><p>Build brand awareness and fill your pipeline with qualified demand at scale.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#EEF2FF;">💻</div><h3>App Development</h3><p>Custom web and mobile applications built fast, clean, and exactly to your spec.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#F0FDF4;">📊</div><h3>Business Analytics</h3><p>Turn raw data into clear decisions with AI-powered dashboards and real-time insights.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#EEF2FF;">☁️</div><h3>Cloud App Development</h3><p>Scalable, secure cloud applications built for modern businesses that need to move fast.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#FFF7ED;">⚙️</div><h3>Custom Software</h3><p>Bespoke software solutions designed around your exact workflow and business needs.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#EEF2FF;">🚀</div><h3>SaaS Development</h3><p>We take your SaaS idea from concept to launch — design, development, and deployment included.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#F0FDF4;">📱</div><h3>Digital Marketing</h3><p>SEO, paid ads, and content strategies that drive real, measurable business growth.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#FFF7ED;">🖥️</div><h3>IT Consulting</h3><p>Expert guidance to modernize your tech stack, cut costs, and increase team efficiency.</p></div>
+      <div class="svc-card"><div class="svc-icon" style="background:#EEF2FF;">🎙️</div><h3>Voice Agents</h3><p>AI voice assistants that handle inbound calls, bookings, and customer queries hands-free.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-inner">
+    <div><div class="stat-num">12+</div><div class="stat-lbl">Services offered</div></div>
+    <div><div class="stat-num">24/7</div><div class="stat-lbl">AI agents running</div></div>
+    <div><div class="stat-num">10x</div><div class="stat-lbl">Faster lead follow-up</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-lbl">Custom built for you</div></div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="section" id="why">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Why choose us</div>
+      <div class="section-title">Built for results, not just demos</div>
+      <div class="section-sub">We don't just deliver projects — we build systems that make your business money.</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><h4>Full-stack team</h4><p>From AI to apps to marketing — one team handles everything so nothing falls through the cracks.</p></div>
+      <div class="why-card"><div class="why-num">02</div><h4>100% custom</h4><p>No templates, no cookie-cutter solutions. Every system is built around your specific business.</p></div>
+      <div class="why-card"><div class="why-num">03</div><h4>Fast delivery</h4><p>We move fast without cutting corners. Most projects are live within days, not months.</p></div>
+      <div class="why-card"><div class="why-num">04</div><h4>Always-on AI</h4><p>Your AI systems work 24/7 — capturing leads, sending emails, and serving customers while you sleep.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">How it works</div>
+      <div class="section-title">From first call to live in days</div>
+      <div class="section-sub">Our simple 4-step process gets your system running fast.</div>
+    </div>
+    <div class="process-grid">
+      <div class="proc-card"><div class="proc-num">1</div><h4>Free strategy call</h4><p>We learn about your business, goals, and current bottlenecks in a free 30-minute call.</p></div>
+      <div class="proc-card"><div class="proc-num">2</div><h4>Custom proposal</h4><p>We design a tailored solution with a clear scope, fixed timeline, and transparent price.</p></div>
+      <div class="proc-card"><div class="proc-num">3</div><h4>We build it</h4><p>Our team builds and tests your system with regular updates and check-ins along the way.</p></div>
+      <div class="proc-card"><div class="proc-num">4</div><h4>Go live & grow</h4><p>We launch, train your team, and provide ongoing support to ensure continued success.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Client reviews</div>
+      <div class="section-title">Trusted by businesses worldwide</div>
+      <div class="section-sub">Real results from real clients who automated their growth with us.</div>
+    </div>
+    <div class="test-grid">
+      <div class="test-card"><div class="stars">★★★★★</div><blockquote>"Meer Agentify built our AI lead gen system in less than a week. We went from manually chasing leads to having them automatically booked in our calendar. Absolute game changer."</blockquote><div class="test-author"><div class="test-avatar">SM</div><div><div class="test-name">Sarah M.</div><div class="test-role">CEO, E-commerce Brand</div></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><blockquote>"The CRM automation they built saves our team 20+ hours every week. Leads are scored, followed up with, and tracked — all without us touching anything. Incredible work."</blockquote><div class="test-author"><div class="test-avatar">JK</div><div><div class="test-name">James K.</div><div class="test-role">Founder, B2B SaaS</div></div></div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><blockquote>"Ahsan and the team delivered our custom software ahead of schedule and under budget. The quality was exceptional and they were responsive throughout the entire project."</blockquote><div class="test-author"><div class="test-avatar">RL</div><div><div class="test-name">Rachel L.</div><div class="test-role">Operations Director</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-badge">✦ Limited spots available</div>
+    <h2>Ready to grow your business with AI?</h2>
+    <p>Book a free 30-minute strategy call with Ahsan and discover what's possible for your business.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/13217803198" target="_blank" class="btn-white">📅 Book free call</a>
+      <a href="https://wa.me/13217803198" target="_blank" class="btn-wa">💬 WhatsApp now</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Get in touch</div>
+      <div class="section-title">Let's talk about your project</div>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <h3>We'd love to hear from you</h3>
+        <p>Whether you have a project in mind or just want to explore what's possible — we reply fast, usually within a few hours.</p>
+        <div class="contact-links">
+          <a href="https://wa.me/13217803198" target="_blank" class="clink">
+            <div class="clink-icon" style="background:#F0FDF4;">💬</div>
+            <div><h5>WhatsApp</h5><p>+1 321 780 3198</p></div>
+          </a>
+          <a href="mailto:raoahsaniqbal16@gmail.com" class="clink">
+            <div class="clink-icon" style="background:#EEF2FF;">📧</div>
+            <div><h5>Email</h5><p>raoahsaniqbal16@gmail.com</p></div>
+          </a>
+          <a href="https://wa.me/13217803198" target="_blank" class="clink">
+            <div class="clink-icon" style="background:#FFF7ED;">📅</div>
+            <div><h5>Book a call</h5><p>Free 30-min strategy session</p></div>
+          </a>
+          <a href="https://github.com/Ahsanmeer" target="_blank" class="clink">
+            <div class="clink-icon" style="background:#F3F4F6;">💻</div>
+            <div><h5>GitHub</h5><p>github.com/Ahsanmeer</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send a message</h3>
+        <div id="formSuccess" class="form-success">✅ Message sent! We'll reach out on WhatsApp shortly.</div>
+        <div id="formFields">
+          <div class="form-row">
+            <div class="fg"><label>First name</label><input type="text" id="fn" placeholder="Ahsan"/></div>
+            <div class="fg"><label>Last name</label><input type="text" id="ln" placeholder="Meer"/></div>
+          </div>
+          <div class="fg"><label>Email address</label><input type="email" id="em" placeholder="you@company.com"/></div>
+          <div class="fg"><label>Service needed</label>
+            <select id="sv">
+              <option value="">Select a service…</option>
+              <option>AI Chatbots</option><option>Email Marketing</option><option>Lead Generation</option>
+              <option>Demand Generation</option><option>App Development</option><option>Business Analytics</option>
+              <option>Cloud App Development</option><option>Custom Software</option><option>SaaS Development</option>
+              <option>Digital Marketing</option><option>IT Consulting</option><option>Voice Agents</option>
+            </select>
+          </div>
+          <div class="fg"><label>Tell us about your project</label><textarea id="mg" placeholder="What are you looking to build or automate?"></textarea></div>
+          <button class="form-btn" onclick="submitForm()">Send message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <div class="logo-icon">M</div>
+          <div class="logo-text">Meer<span>Agentify</span></div>
+        </div>
+        <p class="footer-desc">We help businesses save time and grow faster with custom AI automation, software development, and digital marketing.</p>
+        <div class="social-links">
+          <a href="https://wa.me/13217803198" target="_blank" class="social-btn">💬</a>
+          <a href="mailto:raoahsaniqbal16@gmail.com" class="social-btn">📧</a>
+          <a href="https://github.com/Ahsanmeer" target="_blank" class="social-btn">💻</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">AI Chatbots</a></li>
+          <li><a href="#services">CRM Automation</a></li>
+          <li><a href="#services">Lead Generation</a></li>
+          <li><a href="#services">SaaS Development</a></li>
+          <li><a href="#services">Digital Marketing</a></li>
+          <li><a href="#services">IT Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#why">About us</a></li>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="https://github.com/Ahsanmeer" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="https://wa.me/13217803198" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:raoahsaniqbal16@gmail.com">Email us</a></li>
+          <li><a href="https://wa.me/13217803198" target="_blank">Book a call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meer Agentify. All rights reserved.</span>
+      <span>Founder: Rao Ahsan Meer · <a href="mailto:raoahsaniqbal16@gmail.com">raoahsaniqbal16@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ARIA CHATBOT -->
+<div class="aria-window" id="ariaWindow">
+  <div class="aria-head">
+    <div class="aria-av">🤖</div>
+    <div>
+      <div class="aria-head-name">Aria</div>
+      <div class="aria-head-sub">AI Assistant · Meer Agentify</div>
+    </div>
+    <div class="aria-online-dot"></div>
+    <button class="aria-close" onclick="toggleAria()">×</button>
+  </div>
+  <div class="aria-messages">
+    <div class="aria-msg-bot">Hi there! 👋 I'm <strong>Aria</strong>, the AI assistant for Meer Agentify.<br><br>We help businesses automate and grow with custom AI systems. How can I help you today?</div>
+  </div>
+  <div class="aria-quick">
+    <button class="aria-qbtn" onclick="window.open('https://wa.me/13217803198','_blank')">📅 Book a free call</button>
+    <button class="aria-qbtn" onclick="scrollTo('services')">🛠️ View our services</button>
+    <button class="aria-qbtn" onclick="window.open('https://wa.me/13217803198?text=Hi, I want to know about pricing','_blank')">💰 Pricing info</button>
+    <button class="aria-qbtn" onclick="window.open('https://wa.me/13217803198?text=Hi Ahsan, I want to talk to you directly','_blank')">👤 Talk to Ahsan</button>
+  </div>
+  <div class="aria-input-bar">
+    <input class="aria-txt" type="text" id="ariaTxt" placeholder="Type a message…" onkeydown="if(event.key==='Enter')sendAria()"/>
+    <button class="aria-send-btn" onclick="sendAria()">→</button>
+  </div>
+</div>
+<button class="aria-fab" id="ariaFab" onclick="toggleAria()" aria-label="Chat with Aria">
+  🤖
+  <div class="aria-pulse"></div>
+</button>
+
+<script>
+document.getElementById('hamburger').addEventListener('click',function(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+document.querySelectorAll('.mobile-menu a, a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const h=this.getAttribute('href');
+    if(h&&h.startsWith('#')){
+      const t=document.querySelector(h);
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');}
+    }
+  });
+});
+function toggleAria(){document.getElementById('ariaWindow').classList.toggle('open');}
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});toggleAria();}
+function sendAria(){
+  const t=document.getElementById('ariaTxt');
+  const msg=t.value.trim();
+  if(!msg)return;
+  window.open('https://wa.me/13217803198?text='+encodeURIComponent(msg),'_blank');
+  t.value='';
+}
+function submitForm(){
+  const fn=document.getElementById('fn').value.trim();
+  const em=document.getElementById('em').value.trim();
+  const mg=document.getElementById('mg').value.trim();
+  if(!fn||!em||!mg){alert('Please fill in all required fields.');return;}
+  const sv=document.getElementById('sv').value;
+  const ln=document.getElementById('ln').value.trim();
+  const text=`Hi Ahsan! I'm ${fn} ${ln} (${em}). Service needed: ${sv||'General inquiry'}.\n\n${mg}`;
+  window.open('https://wa.me/13217803198?text='+encodeURIComponent(text),'_blank');
+  document.getElementById('formFields').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+</script>
+</body>
+</html>
